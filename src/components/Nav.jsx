@@ -2,6 +2,14 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import LogoutUser from "../api/LogoutUser.js";
 
+/**
+ * Navbar component which displays different links depending whether logged in or out.
+ * Logged in: Home, Movies, Login, Register
+ * Logged out: Home, Movies, Logout, email(label)
+ * 
+ * @param {Object} props loggedIn, setLoggedIn
+ * @returns {JSX.Element} A navbar component with links to Hom, Movies, Login, Register and Logout.
+ */
 export default function Nav(props) {
   const { loggedIn, setLoggedIn } = props;
   const [email, setEmail] = useState(localStorage.getItem("email"));

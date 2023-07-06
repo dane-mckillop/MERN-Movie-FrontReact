@@ -1,4 +1,10 @@
-/*
+/**
+ * Refreshes a user with the given email and password.
+ *
+ * @typedef {string} LocalStorageToken The old refresh token to be refreshed.
+ * @returns {Promise} A promise that resolves to a new token and new refresh token.
+ *
+ * @usedIn App
 */
 export default function RefreshUser() {
     return getRefreshToken().then(refreshToken => {
@@ -22,7 +28,10 @@ export default function RefreshUser() {
     });
 }
 
-//Not exported for security
+/*
+ *Retrieves the refreshToken from local storage.
+ *Not exported for security
+*/
 async function getRefreshToken() {
     await new Promise(resolve => setTimeout(resolve, 50));
     return localStorage.getItem("refreshToken");

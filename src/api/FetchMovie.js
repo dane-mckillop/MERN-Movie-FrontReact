@@ -1,7 +1,7 @@
 /**
  * Fetches a movie with the given ID.
  *
- * @param {string} imdbID - The Internet Movie Database ID of the movie to fetch.
+ * @param {string} imdbID The Internet Movie Database ID of the movie to fetch.
  * @returns {Promise} A promise that resolves with the movie object.
  *
  * @usedIn Movie

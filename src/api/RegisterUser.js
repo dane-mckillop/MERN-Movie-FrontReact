@@ -1,8 +1,8 @@
 /**
  * Registers a new user with the given email and password.
  *
- * @param {string} email - The email of the user to register.
- * @param {string} password - The password of the user to register.
+ * @param {string} email The email of the user to register.
+ * @param {string} password The password of the user to register.
  * @returns {Promise} A promise that resolves with no value if registration is successful.
  *
  * @usedIn RegistrationWindow

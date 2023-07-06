@@ -2,11 +2,23 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import LoginUser from "../api/LoginUser.js";
 
+/*
+ * Checks if the provided email is of the valid format.
+*/
 function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
+/**
+ * Generates the login window, where the user can input their email and password.
+ * After submission, the form will validate while sending off to the backend.
+ * 
+ * @todo Refactor logic out into functions, and refactor return into a component.
+ * @param {Object} props loggedIn, setLoggedIn
+ * @returns {JSX.Element} A login window component with email and password input fields, validation logic, and a submit button.
+ * @usedIn Login
+*/
 export default function LoginWindow(props) {
     const { loggedIn, setLoggedIn } = props;
     const [email, setEmail] = useState("");

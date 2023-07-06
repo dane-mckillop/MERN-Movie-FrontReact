@@ -5,11 +5,11 @@ import { useEffect } from 'react';
 /**
  * Renders a bar chart component that displays the count of IMDB ratings in each range.
  * 
- * @param {object} props - The component props containing the ratings array.
- * @param {array} ratings - An array of IMDB ratings to display in the bar chart.
+ * @param {object} props ratings.
+ * @param {array} ratings An array of IMDB ratings to display in the bar chart.
  * @returns {JSX.Element} A canvas element containing the rendered bar chart.
  * @usedIn Person
- * @reference ChatGPT, W3Schools
+ * @reference W3Schools, ChatGPT
 */
 export default function BarChart(props) {
     const { ratings } = props;

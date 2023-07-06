@@ -1,7 +1,7 @@
 /**
  * Fetches a list of movies from the Internet Movie Database.
  *
- * @param {Object} props - Set of states: query, year, setRowData.
+ * @param {Object} props Set of states: query, year, setRowData.
  * @returns {Promise} A promise that resolves with the movies object.
  *
  * @usedIn SearchBar

@@ -1,7 +1,7 @@
 /**
  * Fetches a person with the given ID.
  *
- * @param {string} personID - The ID of the person to fetch.
+ * @param {string} personID The ID of the person to fetch.
  * @returns {Promise} A promise that resolves with the person object.
  *
  * @usedIn Person

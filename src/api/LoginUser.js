@@ -1,8 +1,8 @@
 /**
  * Logs in a user with the given email and password.
  *
- * @param {string} email - The email of the user to log in.
- * @param {string} password - The password of the user to log in.
+ * @param {string} email The email of the user to log in.
+ * @param {string} password The password of the user to log in.
  * @returns {Promise} A promise that resolves with no value if the login is successful.
  *
  * @usedIn LoginWindow

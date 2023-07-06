@@ -1,4 +1,9 @@
-// the footer
+/**
+ * The footer component. Rendered by App for every page.
+ * Includes copyright information and provides natural padding.
+ * 
+ * @returns {JSX.Element} Footer element containing copyright information.
+*/
 export default function Footer() {
     return (
         <footer>

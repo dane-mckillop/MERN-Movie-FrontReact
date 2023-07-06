@@ -30,7 +30,10 @@ export default function LogoutUser() {
     });
 }
 
-//Not exported for security
+/*
+ *Retrieves the refreshToken from local storage.
+ *Not exported for security
+*/
 async function getRefreshToken() {
     await new Promise(resolve => setTimeout(resolve, 100));
     return localStorage.getItem("refreshToken");

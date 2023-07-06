@@ -15,7 +15,7 @@ import Person from "../pages/Person";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 
-/*
+/**
   Movies can be searched for by name(substring) or year(int),
   after a user has logged in. A user may login after they register.
   

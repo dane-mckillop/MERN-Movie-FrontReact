@@ -3,12 +3,23 @@ import { useNavigate } from "react-router-dom";
 
 import FetchJSON from "../api/FetchJSON.js"
 
+/*
+ * Checks the provided movie title string does not include disallowed characters.
+*/
 function validateInput(searchQuery) {
     const titleRegex = /^[^.;\\/|\'\"\`]*$/;
 
     return titleRegex.test(searchQuery);
 }
 
+/**
+ * SearchBar component which accepts a string related to a movie title.
+ * Upon submission, will query the backend for movies including the provided substring.
+ * 
+ * @param {Object} props query, setQuery, year, setRowData, setPagination.
+ * @returns search-bar component which includes an input bar and submit button.
+ * @usedIn Nav
+ */
 export default function SearchBar(props) {
     const { query, setQuery, year, setRowData, setPagination } = props;
     const [innerSearch, setInnerSearch] = useState("");
@@ -17,19 +28,25 @@ export default function SearchBar(props) {
     const searchInputRef = useRef(null);
     const navigate = useNavigate();
 
+    const handleSearch = () => {
+        if (innerSearch.trim() !== "") {
+            if (validateInput(innerSearch)) {
+                setQuery(innerSearch);
+                setSubmit(!submit);
+                navigate("/movies");
+            } else {
+                window.alert("Your search query contains disallowed symbols. Please try again.");
+                setInnerSearch("");
+            }
+        } else {
+            window.alert("Search field cannot be empty");
+            setInnerSearch("");
+        }
+    };
+
     const handleKeyDown = (event) => {
         if (event.key === 'Enter' && event.target === searchInputRef.current) {
-            if (innerSearch.trim() !== "") {
-                if (validateInput(innerSearch)) {
-                    setQuery(innerSearch);
-                    setSubmit(!submit);
-                    navigate("/movies");
-                } else {
-                window.alert("Your search query contains disallowed symbols. Please try again.");
-                }
-            } else {
-                window.alert("Search field cannot be empty");
-            }            
+            handleSearch();
         }
     };
 
@@ -55,21 +72,7 @@ export default function SearchBar(props) {
             />
             <button
                 className="search-button"
-                onClick={() => {
-                    if (innerSearch.trim() !== "") {
-                        if (validateInput(innerSearch)) {
-                            setQuery(innerSearch);
-                            setSubmit(!submit);
-                            navigate("/movies");
-                        } else {
-                        window.alert("Your search query contains disallowed symbols. Please try again.");
-                        setInnerSearch("");
-                        }
-                    } else {
-                        window.alert("Search field cannot be empty");
-                        setInnerSearch("");
-                    }   
-                }}
+                onClick={handleSearch}
             >
                 Search
             </button>

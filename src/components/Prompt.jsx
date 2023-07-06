@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom";
 
+/**
+ * Hero content for the home page. Includes log in and register links.
+ * 
+ * @returns {JSX.Element} Hero content component with links to login and registration.
+ */
 export default function Prompt() {
 
     return (

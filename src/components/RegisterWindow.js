@@ -2,11 +2,22 @@ import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import RegisterUser from "../api/RegisterUser.js";
 
+/*
+ * Checks if the provided email is of the valid format.
+*/
 function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
 }
 
+/**
+ * Generates the registration window, where the user can input email, password, and confirm password.
+ * After submission, the form will validate while sending off to the backend.
+ * 
+ * @todo Refactor logic out into functions, and refactor return into a component.
+ * @returns {JSX.Element} A registration window component with email, password, and confirm password input fields, validation logic, and a submit button.
+ * @usedIn Register
+*/
 export default function RegisterWindow() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
