@@ -5,6 +5,14 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Badge } from "reactstrap";
 
+/**
+ * Movies page for the web-application. Populated by substring from SearchBar.
+ * Generates a table populated with movies matching query substring.
+ * 
+ * @param {Object} props query, year, rowData, setRowData, loggedIn, pagination, setPagination
+ * @returns React component for the movies page.
+ * @todo Implement infinite scrolling for the AgGridReact table.
+*/
 export default function Movies(props) {
   const { query, year, rowData, setRowData, loggedIn, pagination, setPagination } = props;
   const [forceUpdate, setForceUpdate] = useState(false);
@@ -23,7 +31,7 @@ export default function Movies(props) {
 
   const defaultColDef = {
     sortable: true
-  }
+  };
 
   useEffect(() => {
     setForceUpdate((prev) => !prev);

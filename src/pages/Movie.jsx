@@ -8,6 +8,17 @@ import FetchMovie from "../api/FetchMovie.js";
 //data
 //import countries from '../data/countries.json';
 
+
+/**
+ * Movie page for the web-application. Displays information related to the movie.
+ * Makes an api call to get movie information related to the passed parameter,
+ * then displays the formatted information.
+ * NOTE: SEPERATE OUT COMPONENTS FROM RETURN STATEMENT.  
+ * 
+ * @param {Object} props loggedIn, setLoggedIn
+ * @returns React component for the movie page.
+ * @todo Separate components from the return statement.
+*/
 export default function Movie() {
     const { imdbID } = useParams();
     const [persons, setPersons] = useState([]);

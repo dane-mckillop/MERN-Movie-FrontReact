@@ -2,7 +2,14 @@ import { Link } from "react-router-dom";
 import React, { useState, useEffect, useRef } from "react";
 import LogoutUser from "../api/LogoutUser.js";
 
-
+/**
+ * Home page for the web-application. 
+ * Note: Should separate Hero component out.
+ * 
+ * @param {Object} props loggedIn, setLoggedIn
+ * @returns React component for the home page.
+ * @todo Separate out Hero component.
+*/
 export default function Home(props) {
   const { loggedIn, setLoggedIn } = props;
   const [email, setEmail] = useState("");
@@ -13,10 +20,9 @@ export default function Home(props) {
     }
   }, [loggedIn])
 
-  // hero content
+  // Hero component (Separate this out at some point).
   const Hero = (props) => (
     <section className="hero">
-      {/* content for the hero */}
       <div className="hero__content">
         <h1 className="hero__title">Dane Mckillop's<br />Movie Search</h1>
         {

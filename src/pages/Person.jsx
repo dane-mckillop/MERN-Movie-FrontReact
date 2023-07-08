@@ -8,6 +8,14 @@ import FetchPerson from "../api/FetchPerson";
 import Prompt from "../components/Prompt";
 import BarChart from "../components/BarChart";
 
+/**
+ * Person page for the web-application. Includes a table which is
+ * populated by persons who worked on given a movie.
+ * 
+ * @param {Object} props loggedIn
+ * @returns React component for the Person page.
+ * @todo Separate out components from return statement.
+*/
 export default function Person(props) {
     const { personID } = useParams();
     const { loggedIn } = props;

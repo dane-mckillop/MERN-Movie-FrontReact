@@ -3,7 +3,12 @@ import { Link } from "react-router-dom";
 //components
 import RegisterWindow from "../components/RegisterWindow.js"
 
-//Note: Login styling used as page layout is the same.
+/**
+ * Register page for the web-application. Uses the LoginWindow component.
+ * 
+ * @param {Object} props email, setEmail
+ * @returns React component for the login page.
+*/
 export default function Register(props) {
     const {email, setEmail} = props;
 

@@ -1,11 +1,12 @@
 import { useEffect, useRef } from 'react';
 
 /**
-Calls a provided function at a specified interval using setInterval() hook.
-@param {function} callback - The function to be called at the specified interval.
-@param {number} interval - The interval duration in milliseconds.
-@returns {void}
-@usedIn App.js
+ * Calls a provided function at a specified interval using setInterval() hook.
+ *
+ * @param {function} callback - The function to be called at the specified interval.
+ * @param {number} interval - The interval duration in milliseconds.
+ * @returns {void}
+ * @usedIn App.js
 */
 export default function UseInterval(callback, interval) {
     const savedCallback = useRef();
