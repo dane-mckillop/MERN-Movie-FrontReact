@@ -11,10 +11,18 @@ export default function FetchJSON(props) {
     let url = `http://sefdb02.qut.edu.au:3000/movies/search`
 
     try {
-        if (year !== "") {
-            url = `http://sefdb02.qut.edu.au:3000/movies/search?title=${query}&year=${year}`;
-        } else {
-            url = `http://sefdb02.qut.edu.au:3000/movies/search?title=${query}`;
+        const params = [];
+        
+        if (query !== '') {
+          params.push(`title=${query}`);
+        }
+        
+        if (year !== '') {
+          params.push(`year=${year}`);
+        }
+        
+        if (params.length > 0) {
+          url = url + '?' + params.join('&');
         }
     } catch {
         url = `http://sefdb02.qut.edu.au:3000/movies/search`;

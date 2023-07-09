@@ -29,7 +29,7 @@ export default function SearchBar(props) {
     const navigate = useNavigate();
 
     const handleSearch = () => {
-        if (innerSearch.trim() !== "") {
+        //if (innerSearch.trim() !== "") {
             if (validateInput(innerSearch)) {
                 setQuery(innerSearch);
                 setSubmit(!submit);
@@ -38,10 +38,10 @@ export default function SearchBar(props) {
                 window.alert("Your search query contains disallowed symbols. Please try again.");
                 setInnerSearch("");
             }
-        } else {
+        /*} else {
             window.alert("Search field cannot be empty");
             setInnerSearch("");
-        }
+        }*/
     };
 
     const handleKeyDown = (event) => {
