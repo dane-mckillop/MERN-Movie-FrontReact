@@ -1,3 +1,5 @@
+import API_URL from '../components/config.js'
+
 /**
  * Fetches a movie with the given ID.
  *
@@ -7,7 +9,7 @@
  * @usedIn Movie
 */
 export default function FetchMovie(imdbID) {
-    let url = `http://sefdb02.qut.edu.au:3000/movies/data/${imdbID}`;
+    let url = API_URL + `/movies/data/${imdbID}`;
 
     return fetch(url)
         .then(response => {

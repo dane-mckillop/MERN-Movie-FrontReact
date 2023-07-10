@@ -1,3 +1,5 @@
+import API_URL from '../components/config.js'
+
 /**
  * Fetches a person with the given ID.
  *
@@ -8,7 +10,7 @@
 */
 export default function FetchPerson(personID) {
     return getBearerToken().then((token) => {
-            return fetch(`http://sefdb02.qut.edu.au:3000/people/${personID}`, {
+            return fetch(API_URL + `/people/${personID}`, {
                 method: 'GET',
                 headers: {
                     'accept': 'application/json',

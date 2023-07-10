@@ -1,3 +1,5 @@
+import API_URL from '../components/config.js'
+
 /**
  * Registers a new user with the given email and password.
  *
@@ -8,7 +10,7 @@
  * @usedIn RegistrationWindow
 */
 export default function RegisterUser(email, password) {
-    return fetch(`http://sefdb02.qut.edu.au:3000/user/register`, {
+    return fetch(API_URL + `/user/register`, {
         method: "POST",
         headers: {
             'accept': 'application/json',

@@ -1,3 +1,5 @@
+import API_URL from '../components/config.js'
+
 /**
  * Logs in a user with the given email and password.
  *
@@ -9,7 +11,7 @@
 */
 export default function LoginUser(email, password) {
 
-    return fetch(`http://sefdb02.qut.edu.au:3000/user/login`, {
+    return fetch(API_URL + `/user/login`, {
         method: 'POST',
         headers: {
             'accept': 'application/json',

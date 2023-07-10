@@ -1,3 +1,5 @@
+import API_URL from '../components/config.js'
+
 /**
  * Refreshes a user with the given email and password.
  *
@@ -8,7 +10,7 @@
 */
 export default function RefreshUser() {
     return getRefreshToken().then(refreshToken => {
-        return fetch(`http://sefdb02.qut.edu.au:3000/user/refresh`, {
+        return fetch(API_URL + `/user/refresh`, {
             method: 'POST',
             headers: {
                 'accept': 'application/json',

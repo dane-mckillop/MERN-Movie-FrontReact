@@ -28,6 +28,7 @@ export default function SearchBar(props) {
     const searchInputRef = useRef(null);
     const navigate = useNavigate();
 
+    //Sections pertaining to empty search commented out.
     const handleSearch = () => {
         //if (innerSearch.trim() !== "") {
             if (validateInput(innerSearch)) {

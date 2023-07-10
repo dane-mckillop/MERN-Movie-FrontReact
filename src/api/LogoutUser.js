@@ -1,3 +1,5 @@
+import API_URL from '../components/config.js'
+
 /**
  * Logs out the currently logged in user.
  * 
@@ -6,7 +8,7 @@
 */
 export default function LogoutUser() {
     return getRefreshToken().then(refreshToken => {
-        return fetch(`http://sefdb02.qut.edu.au:3000/user/logout`, {
+        return fetch(API_URL + `/user/logout`, {
             method: 'POST',
             headers: {
                 'accept': 'application/json',

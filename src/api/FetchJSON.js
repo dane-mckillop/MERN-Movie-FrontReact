@@ -1,3 +1,5 @@
+import API_URL from '../components/config.js'
+
 /**
  * Fetches a list of movies from the Internet Movie Database.
  *
@@ -8,13 +10,14 @@
 */
 export default function FetchJSON(props) {
     const { query, year, setRowData, setPagination } = props;
-    let url = `http://sefdb02.qut.edu.au:3000/movies/search`
+    let url = API_URL + `/movies/search`
 
     try {
         const params = [];
         
         if (query !== '') {
-          params.push(`title=${query}`);
+          const encodedQuery = encodeURIComponent(query);
+          params.push(`title=${encodedQuery}`);
         }
         
         if (year !== '') {
@@ -25,7 +28,7 @@ export default function FetchJSON(props) {
           url = url + '?' + params.join('&');
         }
     } catch {
-        url = `http://sefdb02.qut.edu.au:3000/movies/search`;
+        url = API_URL + `/movies/search`;
     }
 
     return fetch(url) 
