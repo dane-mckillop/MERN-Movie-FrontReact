@@ -1,3 +1,3 @@
-const API_URL = `http://sefdb02.qut.edu.au:3000`;
+const API_URL = `https://localhost:4002`;
 
 export default API_URL;
