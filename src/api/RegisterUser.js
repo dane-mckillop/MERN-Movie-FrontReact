@@ -1,4 +1,4 @@
-import API_URL from '../components/config.js'
+import API_URL from '../components/Config.js'
 
 /**
  * Registers a new user with the given email and password.

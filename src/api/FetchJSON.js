@@ -1,4 +1,4 @@
-import API_URL from '../components/config.js'
+import API_URL from '../components/Config.js'
 
 /**
  * Fetches a list of movies from the Internet Movie Database.
