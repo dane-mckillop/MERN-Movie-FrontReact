@@ -19,6 +19,7 @@ export default function Movies(props) {
   const [lastPage, setLastPage] = useState(pagination.lastPage);
   const [total, setTotal] = useState(pagination.total);
   const navigate = useNavigate();
+  const paginationPageSize = 100;
 
   const columns = [
     { headerName: "Title", field: "title", width: "300px", autoHeight: true, cellStyle: { whiteSpace: "normal", wrapText: true } },
@@ -29,9 +30,60 @@ export default function Movies(props) {
     { headerName: "Rated", field: "classification", width: "100px" }
   ];
 
+  const onGridReady = (params) => {
+    const gridApi = params.api;
+    const dataSource = {
+      rowCount: null,
+      getRows: (params) => {
+        // params contains information about the requested rows
+        // such as startRow, endRow, and sort/model information
+  
+        // Here, you can make an API call or fetch data from your data source
+        // based on the requested rows
+  
+        // Once you have the data, you can update the rowData state using setRowData
+        // For example:
+        // fetchRowsFromAPI(params.startRow, params.endRow)
+        //   .then((newData) => {
+        //     setRowData([...rowData, ...newData]);
+        //     params.successCallback(newData, totalCount);
+        //   })
+        //   .catch((error) => {
+        //     console.error(error);
+        //     params.failCallback();
+        //   });
+  
+        // After updating the rowData state, you need to call params.successCallback
+        // to let the grid know that the data has been successfully fetched
+        // and it can continue rendering the requested rows
+  
+        // In this example, I'll just call the successCallback with empty data
+        params.successCallback([], 0);
+      },
+    };
+  
+    // Set the grid's datasource to the infinite scrolling data source
+    gridApi.setDatasource(dataSource);
+  };
+
   const defaultColDef = {
     sortable: true
   };
+
+  const gridOptions = {
+    className: "ag-theme-balham",
+    columnDefs: {columns},
+    defaultColDef: {defaultColDef},
+    rowModelType: 'infinite',
+    paginationPageSize: paginationPageSize,
+    paginationAutoPageSize: true,
+    cacheBlockSize: paginationPageSize,
+    onGridReady: onGridReady,
+    maxBlocksInCache: 6,
+    domLayout: "autoHeight",
+    forceUpdate: {forceUpdate},
+    suppressBrowserResizeObserver: true,
+  }
 
   useEffect(() => {
     setForceUpdate((prev) => !prev);
@@ -54,19 +106,11 @@ export default function Movies(props) {
         </p>
         <div className="movies-table">
           <AgGridReact
-            className="ag-theme-balham"
-            columnDefs={columns}
-            defaultColDef={defaultColDef}
-            rowData={rowData}
-            //rowModelType='infinite'
-            pagination={true}
-            paginationPageSize={10}
-            domLayout="autoHeight"
-            forceUpdate={forceUpdate}
+            gridOptions={gridOptions}
             onRowClicked={(row) => {
               navigate(`/movies/${row.data.imdbID}`);
             }}
-          />
+          ></AgGridReact>
         </div>
       </div>
       <div style={{ paddingTop:"150px"}} />
